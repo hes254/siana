@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Siana Construction & Engineering Ltd</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Roboto', sans-serif; line-height:1.6; color:#222; background:#f8f8f8; overflow-x:hidden; }
+
+/* NAVIGATION */
+nav { position: fixed; top:20px; left:50%; transform:translateX(-50%); width:90%; backdrop-filter: blur(15px); background: rgba(255,255,255,0.2); border-radius:50px; box-shadow:0 8px 25px rgba(0,0,0,0.15); z-index:1000; }
+nav .container { display:flex; justify-content:space-between; align-items:center; padding:12px 25px; }
+nav .logo { display:flex; align-items:center; font-weight:700; font-size:1.5em; color:#333; gap:12px; }
+nav .logo img { height:45px; width:auto; }
+nav ul { display:flex; list-style:none; gap:25px; }
+nav ul li a { text-decoration:none; color:#333; font-weight:500; padding:8px 20px; border-radius:50px; transition:0.3s ease; }
+nav ul li a:hover { background: linear-gradient(45deg,#d49a6a,#bb7a40); color:#fff; }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+.hamburger div { width:28px; height:3px; background:#333; }
+
+/* HERO */
+header { height:50vh; background: url('images/back') center/cover no-repeat; position:relative; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; padding:0 20px; overflow:hidden;}
+header::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.35); backdrop-filter: blur(5px); z-index:0; }
+.hero-content { position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; max-width:900px; }
+header h1 { font-size:3em; text-shadow:2px 2px 15px rgba(0,0,0,0.6); margin-bottom:15px; color:#bb7a40; }
+
+/* DECORATIVE SHAPES & LINES */
+.decorative-line, .decorative-shape { position:absolute; z-index:1; pointer-events:none; }
+.decorative-line { height:3px; opacity:0.25; }
+.decorative-shape { border-radius:50%; opacity:0.15; }
+.line1 { width:90%; top:5%; left:5%; background:#ff6b6b; transform:rotate(5deg);}
+.line2 { width:60%; top:25%; right:10%; background:#1dd1a1; transform:rotate(-8deg);}
+.shape1 { width:120px; height:120px; background:#ff9ff3; top:10%; left:10%; }
+.shape2 { width:100px; height:100px; background:#5f27cd; bottom:15%; right:5%; }
+
+/* CONTACT SECTION */
+#contact { padding:80px 20px; background:#fff8f0; display:flex; flex-direction:column; align-items:center; position:relative; }
+.contact-header { text-align:center; margin-bottom:50px; }
+.contact-header h2 { font-size:2.8em; color:#bb7a40; margin-bottom:10px; }
+.contact-header p { font-size:1.2em; color:#555; max-width:800px; margin:auto; }
+
+.contact-container { display:flex; flex-wrap:wrap; justify-content:center; gap:50px; max-width:1200px; }
+.contact-info, .contact-form, .contact-map { flex:1 1 400px; background:#fff3e6; padding:30px; border-radius:25px; box-shadow:0 10px 25px rgba(0,0,0,0.1); position:relative; }
+.contact-info h3 { color:#bb7a40; font-size:1.8em; margin-bottom:15px; }
+.contact-info p, .contact-info a { font-size:1.05em; color:#222; margin-bottom:10px; text-decoration:none; }
+.contact-info a:hover { color:#bb7a40; }
+
+/* FORM */
+.contact-form h3 { color:#bb7a40; font-size:1.8em; margin-bottom:15px; }
+.contact-form form { display:flex; flex-direction:column; gap:15px; }
+.contact-form input, .contact-form textarea { padding:12px 15px; border-radius:10px; border:1px solid #ccc; font-size:1em; }
+.contact-form button { padding:14px 25px; border-radius:10px; border:none; background:#bb7a40; color:#fff; font-weight:700; cursor:pointer; transition:0.3s; }
+.contact-form button:hover { background:linear-gradient(45deg,#d49a6a,#bb7a40); }
+
+/* MAP */
+.contact-map iframe { width:100%; height:300px; border-radius:15px; border:0; }
+
+/* FOOTER */
+footer { background:#fdf0e3; color:#333; padding:60px 20px; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-around; }
+.footer-section h3 { color:#8c542a; margin-bottom:15px; font-size:1.2em; }
+.footer-section p, footer a { font-size:0.95em; color:#333; text-decoration:none; margin-bottom:8px; display:block; }
+.footer-section a:hover { color:#bb7a40; }
+.footer-socials { display:flex; flex-direction:column; gap:10px; }
+.footer-socials a { font-size:1em; transition:0.3s; }
+.footer-socials a:hover { color:#bb7a40; }
+
+/* WHATSAPP BUTTON */
+.whatsapp { position:fixed; bottom:30px; right:30px; background:#25D366; width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; color:#fff; font-size:1.9em; text-decoration:none; box-shadow:0 8px 20px rgba(0,0,0,0.3); transition:0.3s ease; }
+.whatsapp:hover { transform:scale(1.12); }
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav ul { display:none; flex-direction:column; background:rgba(255,255,255,0.95); border-radius:0 0 15px 15px; padding:20px; }
+  nav ul.active { display:flex; }
+  .hamburger { display:flex; }
+  .contact-container { flex-direction:column; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="container">
+    <div class="logo"><img src="logo.jpeg" alt="Company Logo">Siana Construction & Engineering Ltd</div>
+    <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header>
+  <div class="decorative-line line1"></div>
+  <div class="decorative-line line2"></div>
+  <div class="decorative-shape shape1"></div>
+  <div class="decorative-shape shape2"></div>
+  <div class="hero-content">
+    <h1>Contact Siana Construction</h1>
+  </div>
+</header>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <div class="contact-header">
+    <h2>Get in Touch</h2>
+    <p>We are ready to discuss your projects and provide premium construction solutions. Reach out to us via phone, email, or our contact form.</p>
+  </div>
+  <div class="contact-container">
+    <div class="contact-info">
+      <h3>Contact Details</h3>
+      <p><strong>Address:</strong> Muindi Mbingu Street<br>Plot no. LR 209/2623<br>P.O. Box 34238 – 00100 Nairobi</p>
+      <p><strong>Phone:</strong> 0722 215684</p>
+      <p><strong>Email:</strong> <a href="mailto:sianaconstruction@gmail.com">sianaconstruction@gmail.com</a></p>
+      <p><strong>Working Days:</strong> Mon-Fri 8AM-6PM | Sat 9AM-2PM | Sun Closed</p>
+    </div>
+    <div class="contact-form">
+      <h3>Send Us a Message</h3>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Subject">
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+    <div class="contact-map">
+      <h3>Our Location</h3>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1993.123456789!2d36.8219!3d-1.2921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1a1a1a1a1a1a%3A0xabcdef123456789!2sMuindi%20Mbingu%20St%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1678888888888!5m2!1sen!2ske" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-section">
+    <h3>Contact Info</h3>
+    <p>Address: Muindi Mbingu Street, Plot no. LR 209/2623</p>
+    <p>P.O. Box 34238 – 00100 Nairobi</p>
+    <p>Tel: 0722 215684</p>
+    <p>Email: <a href="mailto:sianaconstruction@gmail.com">sianaconstruction@gmail.com</a></p>
+  </div>
+  <div class="footer-section">
+    <h3>Working Days</h3>
+    <p>Mon – Fri: 8AM – 6PM</p>
+    <p>Sat: 9AM – 2PM</p>
+    <p>Sun: Closed</p>
+  </div>
+  <div class="footer-section">
+    <h3>Follow Us</h3>
+    <div class="footer-socials">
+      <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="https://wa.me/254722215684" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+  </div>
+  <div class="footer-section" style="align-self:flex-end; margin-top:20px;">
+    <p style="font-size:0.85em; color:#8c542a;">Website by Batiment</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/254722215684" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+</script>
+</body>
+</html>

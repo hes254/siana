@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siana Construction & Engineering Ltd - Projects</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Roboto', sans-serif; line-height:1.6; color:#222; background:#f8f8f8; overflow-x:hidden; }
+
+/* NAVIGATION */
+nav { position: fixed; top:20px; left:50%; transform:translateX(-50%); width:90%; backdrop-filter: blur(15px); background: rgba(255,255,255,0.2); border-radius:50px; box-shadow:0 8px 25px rgba(0,0,0,0.15); z-index:1000; }
+nav .container { display:flex; justify-content:space-between; align-items:center; padding:12px 25px; }
+nav .logo { display:flex; align-items:center; font-weight:700; font-size:1.5em; color:#333; gap:12px; }
+nav .logo img { height:45px; width:auto; }
+nav ul { display:flex; list-style:none; gap:25px; }
+nav ul li a { text-decoration:none; color:#333; font-weight:500; padding:8px 20px; border-radius:50px; transition:0.3s ease; }
+nav ul li a:hover, nav ul li a.active { background: linear-gradient(45deg,#d49a6a,#bb7a40); color:#fff; }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+.hamburger div { width:28px; height:3px; background:#333; }
+
+/* HEADER */
+header { height:300px; background: url('images/back') center/cover no-repeat; position:relative; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; padding:0 20px;}
+header::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.35); backdrop-filter: blur(5px); z-index:0; }
+header h1 { font-size:3em; color:#fff; text-shadow:2px 2px 15px rgba(0,0,0,0.6); }
+
+/* PROJECTS */
+section#projects { padding:100px 20px; position:relative; }
+section#projects h2 { text-align:center; font-size:2.5em; color:#bb7a40; margin-bottom:80px; }
+
+/* Project cards */
+.projects-container { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; }
+.project-card { background:#fff; border-radius:25px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.1); width:300px; display:flex; flex-direction:column; align-items:center; transition:0.3s ease; }
+.project-card:hover { transform:translateY(-8px); box-shadow:0 15px 35px rgba(0,0,0,0.15); }
+.project-card img { 
+    width:100%; 
+    height:300px; /* increased from 220px */
+    object-fit:cover; 
+    border-radius:25px 25px 0 0; 
+}.project-card .project-info { padding:20px; text-align:center; }
+.project-card .project-info h3 { font-size:1.5em; color:#bb7a40; margin-bottom:12px; }
+.project-card .project-info p { font-size:1em; line-height:1.5; margin-bottom:15px; }
+.project-card .testimonial { background:#fff3e6; border-radius:15px; padding:15px; font-style:italic; font-size:0.95em; line-height:1.4; box-shadow:0 5px 15px rgba(0,0,0,0.05); }
+
+/* FOOTER */
+footer { background:#fdf0e3; color:#333; padding:60px 20px; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-around; }
+.footer-section h3 { color:#8c542a; margin-bottom:15px; font-size:1.2em; }
+.footer-section p, footer a { font-size:0.95em; color:#333; text-decoration:none; margin-bottom:8px; display:block; }
+.footer-section a:hover { color:#bb7a40; }
+.footer-socials { display:flex; flex-direction:column; gap:10px; }
+.footer-socials a { font-size:1em; transition:0.3s; }
+.footer-socials a:hover { color:#bb7a40; }
+
+/* WHATSAPP BUTTON */
+.whatsapp { position:fixed; bottom:30px; right:30px; background:#25D366; width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; color:#fff; font-size:1.9em; text-decoration:none; box-shadow:0 8px 20px rgba(0,0,0,0.3); transition:0.3s ease; }
+.whatsapp:hover { transform:scale(1.12); }
+
+/* RESPONSIVE */
+@media(max-width:992px){
+  .projects-container { flex-direction:column; align-items:center; }
+}
+@media(max-width:768px){
+  nav ul { display:none; flex-direction:column; background:rgba(255,255,255,0.95); border-radius:0 0 15px 15px; padding:20px; }
+  nav ul.active { display:flex; }
+  .hamburger { display:flex; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="container">
+    <div class="logo"><img src="logo.jpeg" alt="Company Logo">Siana Construction & Engineering Ltd</div>
+    <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#projects" class="active">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <h1>Our Projects</h1>
+</header>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Featured Projects</h2>
+  <div class="projects-container">
+    <div class="project-card">
+      <img src="appartment1.jpeg" alt="Commercial Building">
+      <div class="project-info">
+        <h3>Commercial Building — Nairobi</h3>
+        <p>Construction of modern commercial building with high-quality materials, ensuring durability, efficiency, and safety.</p>
+        <div class="testimonial">"Delivered on time and exceeded expectations. The team’s professionalism was unmatched." – <strong>Jane Mwangi</strong></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="church.jpeg" alt="Bridge Construction">
+      <div class="project-info">
+        <h3>church construction — Kisumu</h3>
+        <p>Durable bridge built with strict adherence to engineering standards, ensuring long-lasting infrastructure.</p>
+        <div class="testimonial">"The bridge project showcased excellent planning, safety, and quality." – <strong>David Ochieng</strong></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="residential.jpeg" alt="Water Pan">
+      <div class="project-info">
+        <h3>hotel — Eldoret</h3>
+        <p>Efficient water storage solution for agricultural and community use, built with sustainability in mind.</p>
+        <div class="testimonial">"Siana Construction ensured quality water infrastructure for our community." – <strong>Mary Atieno</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-section">
+    <h3>Contact Info</h3>
+    <p>Address: P.O. Box 34238 – 00100 Nairobi</p>
+    <p>Tel: 0722 215684</p>
+    <p>Email: <a href="mailto:sianaconstruction@gmail.com">sianaconstruction@gmail.com</a></p>
+  </div>
+  <div class="footer-section">
+    <h3>Working Days</h3>
+    <p>Mon – Fri: 8AM – 6PM</p>
+    <p>Sat: 9AM – 2PM</p>
+    <p>Sun: Closed</p>
+  </div>
+  <div class="footer-section">
+    <h3>Follow Us</h3>
+    <div class="footer-socials">
+      <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="https://wa.me/254722215684" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+  </div>
+  <div class="footer-section" style="align-self:flex-end; margin-top:20px;">
+    <p style="font-size:0.85em; color:#8c542a;">Website by Batiment</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/254722215684" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+</script>
+
+</body>
+</html>

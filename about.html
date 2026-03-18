@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Siana Construction & Engineering Ltd</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Roboto', sans-serif; line-height:1.6; color:#222; background:#f8f8f8; overflow-x:hidden; }
+
+/* NAVIGATION */
+nav { position: fixed; top:20px; left:50%; transform:translateX(-50%); width:90%; backdrop-filter: blur(15px); background: rgba(255,255,255,0.2); border-radius:50px; box-shadow:0 8px 25px rgba(0,0,0,0.15); z-index:1000; }
+nav .container { display:flex; justify-content:space-between; align-items:center; padding:12px 25px; }
+nav .logo { display:flex; align-items:center; font-weight:700; font-size:1.5em; color:#333; gap:12px; }
+nav .logo img { height:45px; width:auto; }
+nav ul { display:flex; list-style:none; gap:25px; }
+nav ul li a { text-decoration:none; color:#333; font-weight:500; padding:8px 20px; border-radius:50px; transition:0.3s ease; }
+nav ul li a:hover { background: linear-gradient(45deg,#d49a6a,#bb7a40); color:#fff; }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+.hamburger div { width:28px; height:3px; background:#333; }
+
+/* HERO / HEADER */
+header { height:60vh; background: url('images/back') center/cover no-repeat; position:relative; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; padding:0 20px; overflow:hidden;}
+header::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.35); backdrop-filter: blur(5px); z-index:0; }
+.hero-content { position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; max-width:900px; }
+header h1 { font-size:3em; text-shadow:2px 2px 15px rgba(0,0,0,0.6); margin-bottom:15px; }
+header p { font-size:1.2em; margin-bottom:25px; text-shadow:1px 1px 10px rgba(0,0,0,0.5); }
+
+/* DECORATIVE SHAPES & LINES */
+.decorative-line, .decorative-shape { position:absolute; z-index:1; pointer-events:none; }
+.decorative-line { height:4px; opacity:0.25; }
+.decorative-shape { border-radius:50%; opacity:0.15; }
+
+.line1 { width:90%; top:5%; left:5%; background:#ff6b6b; transform:rotate(5deg);}
+.line2 { width:60%; top:25%; right:10%; background:#1dd1a1; transform:rotate(-8deg);}
+.line3 { width:70%; bottom:25%; left:10%; background:#54a0ff; transform:rotate(12deg);}
+.line4 { width:80%; top:60%; left:15%; background:#feca57; transform:rotate(-5deg);}
+.line5 { width:65%; top:75%; right:20%; background:#ff9ff3; transform:rotate(15deg);}
+.shape1 { width:120px; height:120px; background:#ff9ff3; top:10%; left:10%; }
+.shape2 { width:100px; height:100px; background:#5f27cd; bottom:15%; right:5%; }
+.shape3 { width:150px; height:150px; background:#1dd1a1; top:50%; left:70%; }
+.shape4 { width:80px; height:80px; background:#ff6b6b; bottom:30%; left:50%; }
+.shape5 { width:90px; height:90px; background:#ff9f43; top:75%; left:30%; }
+
+/* SECTIONS */
+section { padding:80px 20px; position:relative; }
+h2 { font-size:2.5em; text-align:center; color:#bb7a40; margin-bottom:50px; }
+
+/* TEXT BOXES */
+.text-box { max-width:1000px; margin:0 auto 40px auto; background:#fff3e6; padding:25px 30px; border-radius:25px; box-shadow:0 10px 25px rgba(0,0,0,0.1); }
+.text-box h3 { color:#bb7a40; margin-bottom:15px; }
+.text-box p, .text-box li { font-size:1em; line-height:1.6; margin-bottom:10px; }
+
+/* TEAM GRID */
+.team-section { position:relative; }
+.team-decorative { position:absolute; z-index:0; pointer-events:none; }
+.team-decorative .team-shape1 { width:120px; height:120px; background:#ff9ff3; top:5%; left:10%; border-radius:50%; opacity:0.15; }
+.team-decorative .team-shape2 { width:100px; height:100px; background:#1dd1a1; bottom:10%; right:5%; border-radius:50%; opacity:0.15; }
+.team-decorative .team-shape3 { width:150px; height:150px; background:#feca57; top:50%; left:75%; border-radius:50%; opacity:0.1; }
+
+.team-grid { display:flex; flex-direction:column; align-items:center; gap:40px; position:relative; z-index:2; }
+.team-member { background:#fff3e6; border-radius:20px; padding:20px; text-align:center; box-shadow:0 10px 20px rgba(0,0,0,0.1); }
+.team-member img { width:150px; height:150px; object-fit:cover; border-radius:50%; margin-bottom:15px; }
+.team-member h4 { color:#bb7a40; margin-bottom:5px; }
+.team-member p { font-size:0.95em; color:#555; }
+.team-row { display:flex; gap:25px; flex-wrap:wrap; justify-content:center; width:100%; }
+.top-member { width:250px; }
+
+/* FOOTER */
+footer { background:#fdf0e3; color:#333; padding:60px 20px; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-around; }
+.footer-section h3 { color:#8c542a; margin-bottom:15px; font-size:1.2em; }
+.footer-section p, footer a { font-size:0.95em; color:#333; text-decoration:none; margin-bottom:8px; display:block; }
+.footer-section a:hover { color:#bb7a40; }
+.footer-socials { display:flex; flex-direction:column; gap:10px; }
+.footer-socials a { font-size:1em; transition:0.3s; }
+.footer-socials a:hover { color:#bb7a40; }
+
+/* WHATSAPP BUTTON */
+.whatsapp { position:fixed; bottom:30px; right:30px; background:#25D366; width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; color:#fff; font-size:1.9em; text-decoration:none; box-shadow:0 8px 20px rgba(0,0,0,0.3); transition:0.3s ease; }
+.whatsapp:hover { transform:scale(1.12); }
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav ul { display:none; flex-direction:column; background:rgba(255,255,255,0.95); border-radius:0 0 15px 15px; padding:20px; }
+  nav ul.active { display:flex; }
+  .hamburger { display:flex; }
+  .team-row { flex-direction:column; align-items:center; }
+  .team-member img { width:130px; height:130px; }
+  .top-member { width:200px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="container">
+    <div class="logo"><img src="logo.jpeg" alt="Company Logo">Siana Construction & Engineering Ltd</div>
+    <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header>
+  <div class="decorative-line line1"></div>
+  <div class="decorative-line line2"></div>
+  <div class="decorative-line line3"></div>
+  <div class="decorative-line line4"></div>
+  <div class="decorative-line line5"></div>
+  <div class="decorative-shape shape1"></div>
+  <div class="decorative-shape shape2"></div>
+  <div class="decorative-shape shape3"></div>
+  <div class="decorative-shape shape4"></div>
+  <div class="decorative-shape shape5"></div>
+  <div class="hero-content">
+    <h1>About Siana Construction</h1>
+    <p>Delivering premium construction and engineering solutions across Kenya</p>
+  </div>
+</header>
+
+<!-- INTRODUCTION -->
+<section>
+  <h2>Introduction</h2>
+  <div class="text-box">
+    <p>Siana Construction and Engineering Limited is emerging as a leading provider of construction and engineering services in Kenya with an exemplary record of quality and timely construction solutions. We operate in:</p>
+    <ul>
+      <li>General Building Works</li>
+      <li>Construction of small dams and pans</li>
+      <li>Construction of roads and bridges</li>
+      <li>Electrical installations and structured cabling</li>
+      <li>Mechanical installations and services</li>
+    </ul>
+    <p>Licensed by the National Construction Authority in the following categories:</p>
+    <ul>
+      <li>Buildings Works - Category NCA 4</li>
+      <li>Road Works - Category NCA 4</li>
+      <li>Water works - Category NCA 4</li>
+      <li>Electrical Engineering Services - Category NCA 4</li>
+      <li>Mechanical Engineering Services - Category NCA 4</li>
+      <li>Access to Government Procurement Opportunities (AGPO)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section>
+  <h2>Vision & Mission</h2>
+  <div class="text-box">
+    <h3>Vision</h3>
+    <p>To consistently be a safe, reliable & quality-oriented Construction Company that guarantees world-class services.</p>
+    <h3>Mission</h3>
+    <p>To provide quality, cost-effective and creative engineering solutions to our clients while guaranteeing development benefit to our employees and stakeholders.</p>
+    <h3>General Strategy</h3>
+    <p>We adopt advanced building technology, meticulous research on materials, and harness technology to optimize project outcomes while ensuring safety and client satisfaction.</p>
+    <h3>Value Statement</h3>
+    <ul>
+      <li>Promote commitment to quality building</li>
+      <li>Promote safe and healthy working environment</li>
+      <li>Encourage initiative to clients and employees</li>
+      <li>Understanding and satisfying customer needs</li>
+      <li>Promote honesty and integrity amongst employees</li>
+      <li>Stretch individual capabilities</li>
+    </ul>
+    <h3>Quality Assurance</h3>
+    <p>We are committed to providing building solutions that conform to client requirements with planned, systematic, and cost-effective quality management procedures.</p>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <h2>Our Team</h2>
+  <div class="team-decorative">
+    <div class="team-shape1"></div>
+    <div class="team-shape2"></div>
+    <div class="team-shape3"></div>
+  </div>
+  <div class="team-grid">
+    <!-- Managing Director -->
+    <div class="team-member top-member">
+      <img src="team1.jpeg" alt="Managing Director">
+      <h4>Managing Director</h4>
+      <p>Oversees overall company strategy and growth.</p>
+    </div>
+    <!-- Rest of the team -->
+    <div class="team-row">
+      <div class="team-member">
+        <img src="hesbon.jpeg" alt="Project Manager">
+        <h4>Project Manager</h4>
+        <p>Ensures projects are completed on time and quality standards.</p>
+      </div>
+      <div class="team-member">
+        <img src="team3.jpg" alt="Civil Engineer">
+        <h4>Civil Engineer</h4>
+        <p>Designs and supervises construction works.</p>
+      </div>
+      <div class="team-member">
+        <img src="team4.jpg" alt="Mechanical Engineer">
+        <h4>Mechanical Engineer</h4>
+        <p>Handles mechanical installations and maintenance.</p>
+      </div>
+      <div class="team-member">
+        <img src="team5.jpg" alt="Electrical Engineer">
+        <h4>Electrical Engineer</h4>
+        <p>Oversees electrical systems and structured cabling.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-section">
+    <h3>Contact Info</h3>
+    <p>Address: P.O. Box 34238 – 00100 Nairobi</p>
+    <p>Tel: 0722 215684</p>
+    <p>Email: <a href="mailto:sianaconstruction@gmail.com">sianaconstruction@gmail.com</a></p>
+  </div>
+  <div class="footer-section">
+    <h3>Working Days</h3>
+    <p>Mon – Fri: 8AM – 6PM</p>
+    <p>Sat: 9AM – 2PM</p>
+    <p>Sun: Closed</p>
+  </div>
+  <div class="footer-section">
+    <h3>Follow Us</h3>
+    <div class="footer-socials">
+      <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="https://wa.me/254722215684" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+  </div>
+  <div class="footer-section" style="align-self:flex-end; margin-top:20px;">
+    <p style="font-size:0.85em; color:#8c542a;">Website by Batiment</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/254722215684" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+</script>
+</body>
+</html>
